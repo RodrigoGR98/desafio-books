@@ -5,6 +5,21 @@ export const Container = styled.div`
     height: 224px;
     margin-left: 115px;
     position: relative;
+
+    @media(max-width: 768px) {
+      margin-left: 75px;
+      width: 300px;
+    }
+
+    @media(max-width: 425px) {
+      margin-left: 0;
+      width: 100%;
+      margin: 0 30px;
+      padding: 20px;
+      height: 100%;
+      border-radius: 15px;
+      background: rgba(0,0,0,0.1);
+    }
 `;
 
 export const Logo = styled.img`
@@ -37,4 +52,15 @@ export const Button = styled.button`
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
+  transition: all .5s;
+
+  @media (max-width: 425px) {
+    right: 30px;
+    bottom: 48px;
+  }
+
+  &:hover {
+    background: #B22E6F;
+    color: #FFFFFF;
+  }
 `
