@@ -70,19 +70,19 @@ function Home() {
   }
 
   const logout = () => {
-    window.location.href = "/";
     clearSession();
+    window.location.href = "/";
   }
 
   return (
     <Container bg1={bgHome1} bg2={bgHome2}>
       <Header>
         <div className="left-header">
-          <img src={logoHome}></img>
+          <img alt="logo" src={logoHome}></img>
           <span>Books</span>
         </div>
         <div className="right-header">
-          <span>Bem vindo, <strong>{sessionGet('name')}</strong></span>
+          <span>Bem {sessionGet('gender') === 'M' ? 'vindo' : 'vinda'}, <strong>{sessionGet('name')}</strong></span>
           <FiLogOut onClick={() => { logout() }} />
         </div>
       </Header>
@@ -96,8 +96,8 @@ function Home() {
       </Books>
       <Pagination>
         <span>Página <strong>{atualPage}</strong> de <strong>{totalPages}</strong></span>
-        <button type="button" onClick={() => { previousPage() }} className={page === 1 ? 'disabled' : ''} disabled={page === 1 ? true : false}><FiChevronLeft /></button>
-        <button type="button" onClick={() => { nextPage() }} className={page === totalPages ? 'disabled' : ''} disabled={page === totalPages ? true : false}><FiChevronRight /></button>
+        <button type="button" name="Página anterior" onClick={() => { previousPage() }} className={page === 1 ? 'disabled' : ''} disabled={page === 1 ? true : false}><FiChevronLeft /><span>Página anterior</span></button>
+        <button type="button" name="Próxima página" onClick={() => { nextPage() }} className={page === totalPages ? 'disabled' : ''} disabled={page === totalPages ? true : false}><FiChevronRight /><span>Próxima página</span></button>
       </Pagination>
     </Container>
   );

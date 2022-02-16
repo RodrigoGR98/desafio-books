@@ -48,10 +48,13 @@ function LoginBox() {
 
   const saveTokens = (authToken, refreshToken, data) => {
 
+    console.log(data);
+
     const dados = {
       auth: authToken,
       refresh: refreshToken,
-      name: data.name
+      name: data.name,
+      gender: data.gender
     }
 
     sessionSet(dados);

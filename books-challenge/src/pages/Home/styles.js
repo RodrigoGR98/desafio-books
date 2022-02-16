@@ -93,6 +93,10 @@ export const Pagination = styled.div`
     place-content: center;
     color: #333333;
     transition: all 0.5s;
+    
+    span {
+      opacity: 0;
+    }
 
     &:disabled {
       color: rgba(51, 51, 51, 0.2);
@@ -105,6 +109,7 @@ export const Pagination = styled.div`
 
     svg {
       font-size: 16px;
+      position: absolute;
     }
   }
 `

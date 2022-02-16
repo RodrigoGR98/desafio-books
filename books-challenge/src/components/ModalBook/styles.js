@@ -42,12 +42,67 @@ export const ImageNull = styled.div`
 `
 
 export const Info = styled.div`
+  width: 100%;
+
   h1 {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 28px;
     line-height: 40px;
     color: #333333;
   }
+  
+  h2 {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 20px;
+    color: #AB2680;
+  }
+`
+
+export const Information = styled.div`
+  width: 100%;
+
+  h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 28px;
+    color: #333333;
+  }
+
+  .row {
+    width: 100%;
+    display: flex;
+    place-content: space-between;
+
+    .title {
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 24px;
+      color: #333333;
+    }
+
+    .info {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 24px;
+      color: #6e6e6e;
+    }
+  }
+
+  p {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 18px;
+      color: #6e6e6e;
+      text-align: justify;
+
+      svg {
+        font-size: 18px;
+        margin-right: 10px;
+      }
+    }
 `
 
 export const Close = styled.button`

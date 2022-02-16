@@ -27,7 +27,7 @@ function BookCard({ book }) {
     <Container >
       <div className="wrap" onClick={() => { setShow(true) }}>
         {book.imageUrl !== null ? (
-          <Image src={book.imageUrl} />
+          <Image alt={`Capa ${book.title}`} src={book.imageUrl} />
         ) :
           <NullImage><MdImage /></NullImage>
         }

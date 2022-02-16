@@ -30,6 +30,7 @@ export const Container = styled.div`
 
 export const Image = styled.img`
   width: 81px;
+  height: auto;
   margin-right: 16px;
 `
 
@@ -75,6 +76,6 @@ export const Details = styled.div`
     font-weight: normal;
     font-size: 12px;
     line-height: 20px;
-    color: #999999;
+    color: #6e6e6e;
   }
 `
