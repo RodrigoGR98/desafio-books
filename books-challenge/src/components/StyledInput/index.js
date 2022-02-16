@@ -6,7 +6,7 @@ function StyledInput({ type, change }) {
   return (
     <Container>
       <Label>{type}</Label>
-      <Input type={type === "Senha" && 'password'} autocomplete={type === 'Senha' && 'off'} onChange={e => change(e.target.value)} />
+      <Input type={type === "Senha" ? 'password' : ''} autocomplete={type === 'Senha' && 'off'} onChange={e => change(e.target.value)} />
     </Container>
   );
 }

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Header, Logo, Button } from './styles';
 
 //Services
-import apiLogin from '../../services/api-login';
+import apiBooks from '../../services/api-books';
 import { sessionSet } from '../../session';
 
 //Arquivos
@@ -23,12 +23,15 @@ function LoginBox() {
   const [msgError, setMsgError] = useState('');
 
   const login = async (e) => {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
 
     try {
-      const response = await apiLogin.post('/sign-in', { email, password });
-      saveTokens(response.headers.authorization, response.headers["refresh-token"]);
+      const response = await apiBooks.post('/auth/sign-in', { email, password });
       if (response.status === 200) {
+        saveTokens(response.headers.authorization, response.headers["refresh-token"], response.data);
+
         window.location.href = "/home";
       }
     } catch (error) {
@@ -43,11 +46,12 @@ function LoginBox() {
     }
   }
 
-  const saveTokens = (authToken, refreshToken) => {
+  const saveTokens = (authToken, refreshToken, data) => {
 
     const dados = {
       auth: authToken,
-      refresh: refreshToken
+      refresh: refreshToken,
+      name: data.name
     }
 
     sessionSet(dados);
@@ -62,7 +66,7 @@ function LoginBox() {
       <form onSubmit={login}>
         <StyledInput type={'Email'} value={email} change={setEmail} />
         <StyledInput type={'Senha'} value={password} change={setPassword} />
-        <Button type="submit" onClick={() => { login() }}>Entrar</Button>
+        <Button type="submit">Entrar</Button>
       </form>
       <ErrorMessage msg={msgError} hasError={hasError} />
     </Container>
